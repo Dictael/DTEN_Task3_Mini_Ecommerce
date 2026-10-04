@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Responsive mini e-commerce product catalogue with search, category filters and shopping cart.">
+        <title>NovaCart — Mini E-Commerce</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="header">
+            <a class="logo" href="#">Nova<span>Cart</span></a>
+            <nav>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <button id="cartBtn" class="cart-btn" aria-label="Open shopping cart">Cart <b id="cartCount">0</b>
+                </button>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <div>
+                    <p class="eyebrow">DTEN TASK 3</p>
+                    <h1>
+                        Find products<br><span>you'll love.</span>
+                    </h1>
+                    <p>Browse a responsive product catalogue powered by a mock REST API, filter products, and manage your cart with live totals.</p>
+                    <a class="btn" href="#shop">Start Shopping</a>
+                </div>
+                <div class="hero-art">
+                    <div class="floating-card"><span>NEW</span>
+                        <strong>Simple shopping.</strong>
+                        <small>Fast · Clean · Responsive</small>
+                    </div>
+                </div>
+            </section>
+            <section id="shop" class="shop">
+                <div class="shop-head">
+                    <div>
+                <p class="eyebrow">CATALOGUE</p>
+                <h2>Featured products</h2>
+            </div>
+            <p id="apiStatus" class="api-status">Loading products…</p>
+        </div>
+        <div class="controls">
+            <label class="search">Search products<input id="search" type="search" placeholder="e.g. jacket, ring, watch...">
+            </label>
+            <label>Category<select id="category">
+                <option value="all">All categories</option>
+            </select>
+        </label>
+        <label>Sort<select id="sort">
+            <option value="default">Recommended</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+        </select>
+    </label>
+</div>
+<div id="products" class="products" aria-live="polite">
+
+</div>
+</section>
+<section id="about" class="about">
+    <div>
+        <p class="eyebrow">ABOUT THE PROJECT</p>
+        <h2>A small storefront with real front-end behaviour.</h2>
+    </div>
+    <p>This mini e-commerce project demonstrates API integration, product
+         rendering, search, category filtering, shopping-cart state, running totals 
+         and basic form validation without requiring a server-side backend.
+        </p>
+        </section>
+    </main>
+    <aside id="cart" class="cart-panel" aria-label="Shopping cart">
+        <div class="cart-head">
+            <h2>Your Cart</h2>
+            <button id="closeCart" aria-label="Close cart">×</button>
+        </div>
+        <div id="cartItems">
+
+        </div>
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+        </div>
+        <button id="checkoutBtn" class="btn full">Checkout</button>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+    <dialog id="checkoutDialog">
+        <form id="checkoutForm">
+            <button type="button" id="closeCheckout" class="x">×</button>
+            <p class="eyebrow">CHECKOUT</p>
+            <h2>Complete your order</h2>
+            <label>Full name<input id="customerName" required minlength="2" autocomplete="name">
+            </label>
+            <label>Email<input id="customerEmail" type="email" required autocomplete="email"></label>
+            <label>Phone<input id="customerPhone" type="tel" required pattern="[0-9 +()-]{7,}" autocomplete="tel"></label>
+            <label>Delivery address<textarea id="address" required minlength="10" rows="3"></textarea>
+            </label>
+            <p id="checkoutMessage" class="form-message" role="alert"></p>
+            <button class="btn full" type="submit">Place Demo Order</button>
+        </form>
+    </dialog>
+    <footer>NovaCart · Built with HTML, CSS and JavaScript · Mock API: Fake Store API</footer>
+    <script src="script.js"></script>
+</body>
+</html>

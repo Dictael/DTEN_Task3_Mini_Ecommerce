@@ -1,0 +1,94 @@
+:root{--ink:#161616;--muted:#6b7280;--line:#e5e7eb;--bg:#fafafa;--surface:#fff;--accent:#111;--soft:#f1f1ef;--radius:18px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+a{text-decoration:none;color:inherit}
+.header{height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 5%;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.logo{font-size:1.5rem;font-weight:950;letter-spacing:-.04em}
+.logo span{font-weight:400}
+.header nav{display:flex;align-items:center;gap:25px}
+.header nav>a{font-weight:700}
+.cart-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font:inherit;font-weight:800;cursor:pointer}
+.cart-btn b{background:#111;color:#fff;border-radius:50%;padding:2px 7px;margin-left:4px}
+.hero{min-height:590px;padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:linear-gradient(120deg,#f1f1ef,#fff)}
+.hero>div:first-child{max-width:650px}
+.eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.17em;color:#777}
+.hero h1{font-size:clamp(3.1rem,7vw,6rem);line-height:.95;letter-spacing:-.065em;margin:18px 0}
+.hero h1 span{font-weight:400}
+.hero p:not(.eyebrow){font-size:1.1rem;color:var(--muted);max-width:560px}
+.btn{display:inline-block;border:0;border-radius:10px;background:#111;color:#fff;padding:13px 20px;font:inherit;font-weight:850;cursor:pointer;margin-top:20px}
+.hero-art{height:390px;border-radius:30px;background:linear-gradient(135deg,#dededb,#fff);position:relative;overflow:hidden}
+.hero-art:before,
+.hero-art:after{content:"";position:absolute;border-radius:50%;background:#fff}
+.hero-art:before{width:290px;height:290px;right:-50px;top:-70px}
+.hero-art:after{width:190px;height:190px;left:-50px;bottom:-55px}
+.floating-card{position:absolute;z-index:1;left:15%;bottom:15%;background:#111;color:#fff;border-radius:18px;padding:24px;min-width:220px;box-shadow:0 20px 45px rgba(0,0,0,.18)}
+.floating-card span{font-size:.7rem;letter-spacing:.1em}
+.floating-card strong,
+.floating-card small{display:block}
+.floating-card strong{font-size:1.4rem;margin:8px 0}
+.floating-card small{color:#bbb}
+.shop{padding:90px 5%;max-width:1300px;margin:auto}
+.shop-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.shop h2,
+.about h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.04em;line-height:1.05;margin:10px 0}
+.api-status{color:var(--muted);font-size:.9rem}
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:30px 0}
+.controls label,
+.checkout-form label{font-weight:800;font-size:.85rem}
+.controls input,
+.controls select,
+.cart-panel input,
+dialog input,
+dialog textarea{width:100%;margin-top:7px;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;background:#fff}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.product-image{height:250px;background:#f4f4f2;display:grid;place-items:center;padding:25px}
+.product-image img{max-height:200px;max-width:90%;mix-blend-mode:multiply}
+.product-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.category{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em}
+.product h3{font-size:1rem;line-height:1.3;margin:8px 0}
+.product-desc{color:var(--muted);font-size:.83rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:15px}
+.price{font-weight:900}
+.add{border:0;background:#111;color:#fff;border-radius:9px;padding:9px 11px;font-weight:800;cursor:pointer}
+.about{padding:85px 5%;background:#111;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.about .eyebrow{color:#aaa}
+.about p:last-child{color:#bbb;font-size:1.05rem}
+.cart-panel{position:fixed;right:-440px;top:0;height:100vh;width:min(420px,92vw);background:#fff;z-index:50;padding:25px;box-shadow:-20px 0 60px rgba(0,0,0,.15);transition:right .25s;overflow:auto}
+.cart-panel.open{right:0}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;display:none}
+.overlay.open{display:block}
+.cart-head{display:flex;justify-content:space-between;align-items:center}
+.cart-head button,
+.x{border:0;background:none;font-size:2rem;cursor:pointer}
+.cart-item{display:grid;grid-template-columns:60px 1fr auto;gap:10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:60px;height:60px;object-fit:contain;background:#f5f5f3;border-radius:8px}
+.cart-item h3{font-size:.9rem;margin:0}
+.cart-item p{margin:3px 0;color:var(--muted);font-size:.8rem}
+.qty{display:flex;gap:6px;align-items:center}
+.qty button{border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+.cart-total{display:flex;justify-content:space-between;font-size:1.15rem;padding:22px 0}
+.full{width:100%;margin-top:0}
+.empty{padding:35px 0;color:var(--muted)}
+dialog{border:0;border-radius:18px;padding:0;width:min(500px,92vw);box-shadow:0 25px 70px rgba(0,0,0,.2)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog form{padding:30px;position:relative}
+dialog h2{margin:10px 0 20px}
+.x{position:absolute;right:15px;top:10px}
+.form-message{color:#b42318;font-weight:700}
+footer{text-align:center;padding:25px;color:#777;font-size:.82rem;border-top:1px solid var(--line)}
+@media(max-width:1000px)
+{.products{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:780px){.hero,.about{grid-template-columns:1fr}
+.hero-art{height:300px}
+.products{grid-template-columns:repeat(2,1fr)}
+.controls{grid-template-columns:1fr 1fr}
+.controls label:first-child{grid-column:1/-1}
+.shop-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.header nav>a{display:none}
+.products{grid-template-columns:1fr}
+.controls{grid-template-columns:1fr}
+.controls label:first-child{grid-column:auto}
+.hero{padding-top:55px}
+.hero h1{font-size:3.2rem}}
